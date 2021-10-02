@@ -1,0 +1,23 @@
+dependencies:
+  # qui gli diamo <dichièl'interaffcia/repo>@<versione>
+  - smartcontractkit/chainlink-brownie-contracts@1.1.1
+compiler:
+  solc:
+    remappings:
+      - '@chainlink=smartcontractkit/chainlink-brownie-contracts@1.1.1'
+dotenv: .env
+networks:
+  # il network di default è sempre development ma qui volendo lo posso settare a cosa mi pare a me
+  rinkeby:
+    eth_usd_price_feed_address: '0x8A753747A1Fa494EC906cE90E9f37563A8AF630e'
+    verify: true
+  # to use when forking of online blockchain into local
+  mainnet-fork-dev:
+    eth_usd_price_feed_address: '0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419'
+    verify: false 
+  development:
+    verify: false
+  ganache-local:
+    verify: false
+wallets:
+  from_key: ${PRIVATE_KEY}
